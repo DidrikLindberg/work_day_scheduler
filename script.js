@@ -36,6 +36,20 @@ $(function () {
 
 });
 
-
+  // function that render the description from local storage to the page
+  function renderDescription() {
+    //loop ththough each timeblock and get the id
+    $('.time-block').each(function () {
+     //get the timeblock id
+     var timeBlockHour = $(this).attr('id').split('-')[1];
+     //get the description from local storage that matches the timeblock id
+     var description = localStorage.getItem(timeBlockHour);
+     //set the description to the textarea
+     if (description !== null) {
+         $(this).children('textarea').val(description);
+     }
+      });
+ }
+ renderDescription();
   });
   
