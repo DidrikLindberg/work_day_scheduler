@@ -3,12 +3,27 @@
 // in the html.
 $(function () {
 
-    // create a day object using the dayjs library
+    // day object using the dayjs library
     var today = dayjs();
     var currentHour = dayjs().hour();
 
     $('#currentDay').text(today.format('ddd, MMMM, D'));
 
+  // forloop that iterates over each timeblock and compares the id to the current hour
+  // if the id is less than the current hour, add the class past/present/future
+  document.querySelectorAll('.time-block').forEach(function (timeBlock) {
+    var timeBlockHour = parseInt(timeBlock.id.split('-')[1]);
+    if (timeBlockHour < currentHour) {
+        timeBlock.classList.add('past');
+        console.log('past');
+    } else if (timeBlockHour === currentHour) {
+        timeBlock.classList.add('present');
+        console.log('present');
+    } else {
+        timeBlock.classList.add('future');
+        console.log('future');
+    }
+});
 
   });
   
