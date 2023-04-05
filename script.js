@@ -7,6 +7,8 @@ $(function () {
     var today = dayjs();
     var currentHour = dayjs().hour();
 
+
+    // display the current day at the top of the page
     $('#currentDay').text(today.format('ddd, MMMM, D'));
 
   // forloop that iterates over each timeblock and compares the id to the current hour
