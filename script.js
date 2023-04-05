@@ -25,5 +25,17 @@ $(function () {
     }
 });
 
+  // create a click event listener for the save button and save the description to local storage
+  $('.saveBtn').on('click', function () {
+    var timeBlock = $(this).parent();
+    var timeBlockHour = timeBlock.attr('id').split('-')[1];
+    console.log(timeBlockHour);
+    var description = timeBlock.children('textarea').val();
+    console.log(description);
+    localStorage.setItem(timeBlockHour, description);
+
+});
+
+
   });
   
